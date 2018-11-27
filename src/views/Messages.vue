@@ -9,7 +9,10 @@
 
 <script>
 
-import getSyncClient from '../syncClient'
+function listItemToMessage(listItem) {
+    return listItem.data.value;
+}
+
 export default {
   name: 'messages',
   data() {
@@ -18,33 +21,12 @@ export default {
       }
   },
   async mounted() {
-      const sync = await getSyncClient();
+      const sync = await this.$getSyncClient();
       const list = await sync.list('messages');
-      const page = await list.getItems();
-      this.messages = page.items.map(li => li.data.value);
+      const page = await list.getItems({order: 'desc'});
+      this.messages = page.items.map(listItemToMessage);
       const VueThis = this;
-      list.on('itemAdded', evt => VueThis.messages.push(evt.item.data.value));
-      /*
-      event { ToCountry: 'US',
-  ToState: 'OR',
-  SmsMessageSid: 'SM7a90a8dd09c86823513029b8f21e6d07',
-  NumMedia: '0',
-  ToCity: '',
-  FromZip: '97016',
-  SmsSid: 'SM7a90a8dd09c86823513029b8f21e6d07',
-  FromState: 'OR',
-  SmsStatus: 'received',
-  FromCity: 'CLATSKANIE',
-  Body: 'Again',
-  FromCountry: 'US',
-  To: '+19713513060',
-  ToZip: '',
-  NumSegments: '1',
-  MessageSid: 'SM7a90a8dd09c86823513029b8f21e6d07',
-  AccountSid: 'AC166216d487709dc2f431ee2b3848e24a',
-  From: '+15033088404',
-  ApiVersion: '2010-04-01' }
-      */
+      list.on('itemAdded', evt => VueThis.messages.unshift(listItemToMessage(evt.item)));
   }
 }
 
