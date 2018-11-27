@@ -1,6 +1,8 @@
 <template>
   <div class="about">
-    <h1>This is a Serverless application</h1>
+    <h1>It can't be all that bad</h1>
+    <p>Text something good to {{ twilioNumber }}</p>
+    <h2>This is a Serverless application</h2>
     <p>Check out these new features offered from Twilio</p>
     <h3>Learn More</h3>
     <ul>
