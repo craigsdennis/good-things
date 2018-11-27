@@ -3,10 +3,9 @@ import App from './App.vue'
 import router from './router'
 import SyncClientPlugin from './plugins/twilio'
 
+
 Vue.config.productionTip = false
-Vue.use(SyncClientPlugin, {
-  SYNC_TOKEN_URL: 'https://quartz-ant-5504.twil.io/sync-token'}
-);
+Vue.use(SyncClientPlugin)
 
 new Vue({
   router,

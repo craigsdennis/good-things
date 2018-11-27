@@ -1,6 +1,7 @@
 <template>
     <div>
-        <h1>Please Work!</h1>
+        <h1>Messages</h1>
+        <p>Send a message to {{ twilioNumber }}</p>
         <article v-for="(message, idx) in messages" :key="idx">
             <p>{{ message.body }}</p>
         </article>
