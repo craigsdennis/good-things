@@ -12,7 +12,7 @@ const niceties = [
     'Yassssss, you rule'
 ];
 // TODO: How to dynamically set this?
-const url = 'https://localhost:8080';
+const url = 'https://craigsdennis.github.io/good-things/';
 
 exports.handler = async function(context, event, callback) {
     const message = { body: event.Body };
