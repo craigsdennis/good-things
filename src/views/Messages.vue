@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>Good Things</h1>
-        <p>Text your good thing to {{ twilioNumber }}</p>
+        <p>Latest texts to {{ twilioNumber }}</p>
         <article v-for="(message, idx) in messages" :key="idx">
             <p>{{ message.body }}</p>
         </article>

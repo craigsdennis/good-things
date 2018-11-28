@@ -1,4 +1,8 @@
-# decider
+# Good Things
+
+This is an [experiment](https://craigsdennis.github.com/good-things). What happens if you ask people to text something good to a phone number?
+
+
 
 ## Project setup
 ```
